@@ -1,16 +1,22 @@
-import { useState } from 'react'
+import React from "react";
 import Header from './component/header'
 import './App.css'
 import Swipers from './component/swiper'
-
+import ReactDOM from "react-dom/client";
+import {createBrowserRouter,RouterProvider} from "react-router-dom";
+import Home from "./pages/home";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home/>
+  }
+])
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-     <Header/>
-     <Swipers/>
-    </>
+    
+     <RouterProvider router={router}></RouterProvider>
+    
   )
 }
 
