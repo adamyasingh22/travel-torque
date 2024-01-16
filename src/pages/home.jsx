@@ -1,4 +1,5 @@
 import Header from "../component/header";
+import Search from "../component/search";
 import Swipers from "../component/swiper";
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
         <>
         <Header/>
         <Swipers/>
+        <Search/>
         </>
     )
 }
