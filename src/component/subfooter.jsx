@@ -7,7 +7,7 @@ const Subfooter = () => {
                     <p className="bg-[#2F80ED] text-center max-sm:w-32 md:w-52 p-2 mt-4 rounded-lg">Download mobile app</p>
                 </div>
             </div>
-        <div className="my-8 text-center mx-4">
+        <div className="my-12 text-center mx-4">
             <p className="text-[#181818] text-2xl font-semibold">Explore the world with My Dream place</p>
             <p className="text-[#2F80ED] py-2 font-semibold">Discover new places and experiences</p>
         </div>
