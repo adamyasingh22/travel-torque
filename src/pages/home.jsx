@@ -1,3 +1,4 @@
+import Alert from "../component/alert";
 import Footer from "../component/footer";
 import Header from "../component/header";
 import Search from "../component/search";
@@ -10,6 +11,7 @@ const Home = () => {
         <Header/>
         <Swipers/>
         <Search/>
+        <Alert/>
         <Subfooter/>
         <Footer/>
         </>
