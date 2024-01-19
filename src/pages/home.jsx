@@ -1,4 +1,5 @@
 import Alert from "../component/alert";
+import Vacation from "../component/dreamVacation";
 import Footer from "../component/footer";
 import Header from "../component/header";
 import Search from "../component/search";
@@ -12,6 +13,7 @@ const Home = () => {
         <Swipers/>
         <Search/>
         <Alert/>
+        <Vacation/>
         <Subfooter/>
         <Footer/>
         </>
