@@ -1,0 +1,25 @@
+{
+    "title" : "Enjoy your dream vacation" ,
+    "subTitle" : "Plan and book our perfect trip with expert advice, travel tips, destination information and inspiration from us.",
+    "place" : [{
+        "img" : "../../public/images/australia.jpg",
+        "name" : "Australia",
+        "properties" : "2246 properties"
+    },
+    {
+        "img" : "../../public/images/japan's.jpeg",
+        "name" : "Japan",
+        "properties" : "1278 properties"
+    },
+    {
+        "img" : "../../public/images/Zealand.jpg",
+        "name" : "New Zealand",
+        "properties" : "480 properties"
+    },
+    {
+        "img" : "../../public/images/greece.jpg",
+        "name" : "Greece",
+        "properties" : "320 properties"
+    }
+]
+}

@@ -2,18 +2,23 @@ import Alert from "../component/alert";
 import Vacation from "../component/dreamVacation";
 import Footer from "../component/footer";
 import Header from "../component/header";
+import Nexttrip from "../component/nextTrip";
 import Search from "../component/search";
 import Subfooter from "../component/subfooter";
 import Swipers from "../component/swiper";
+import VacData from '../data/vacation.json'
+import HotelData from "../data/hotel.json"
 
 const Home = () => {
     return  (
         <>
         <Header/>
         <Swipers/>
-        <Search/>
+        {/* <Search/> */}
         <Alert/>
-        <Vacation/>
+        <Vacation info={VacData}/>
+        <Nexttrip/>
+        <Vacation info={HotelData}/>
         <Subfooter/>
         <Footer/>
         </>

@@ -10,7 +10,7 @@ const Footer = () =>{
                 </svg>
                 <p className="text-[#1B1F2D] text-lg font-serif pl-2">Travel Torque</p>
              </div> 
-             <p className="text-center font-serif text-[#4F4F4F]">Your next goto companion for travel</p>
+             <p className="text-center font-serif text-[#4F4F4F] md:px-8">Your next goto companion for travel</p>
              </div>
              
              <div className="p-4 font-serif text-center w-auto md:mx-4">
