@@ -33,7 +33,7 @@ const Header  = () =>{
             <div className='max-sm:hidden text-[#726c6c] flex flex-grow justify-center '>
                <ul className='flex items-center'>
                 <li className='px-4'>
-                    Home
+                    <a href="/">Home</a>
                 </li>
                 <li className='px-4'>
                     Discover
@@ -51,7 +51,7 @@ const Header  = () =>{
                     <button type="button" class="text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Register</button>
                     </li>
                 <li className='rounded-md font-semibold ml-4'>
-                    <button type="button" class="text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Login</button>
+                    <button type="button" class="text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"><a href="/login">Login</a></button>
                     </li>
                 
                </ul>
