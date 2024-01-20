@@ -47,11 +47,11 @@ const Header  = () =>{
                 <li className='pl-4'>
                     Contact
                 </li>
-                <li className='rounded-md  font-semibold ml-32 border-[#2F80ED] border-2'>
-                    <div className='text-[#2F80ED] text-sm p-1'>Register</div>
+                <li className='rounded-md  font-semibold ml-32'>
+                    <button type="button" class="text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Register</button>
                     </li>
-                <li className='bg-[#2F80ED] rounded-md font-semibold ml-4'>
-                    <div className='text-white text-sm p-2'>Sign In</div>
+                <li className='rounded-md font-semibold ml-4'>
+                    <button type="button" class="text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Login</button>
                     </li>
                 
                </ul>
