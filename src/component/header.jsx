@@ -15,7 +15,7 @@ const Header  = () =>{
 
     return (
         <>
-        <div className="flex p-4 max-sm:items-center border-b-2 max-sm:border-black md:px-32 justify-items-start items-center">
+        <div className="flex p-4 max-sm:items-center border-b-2 max-sm:border-black md:px-32 justify-items-start items-center bg-white">
             
             <div className="md:hidden lg:hidden " onClick={(e)=>TogglemobileMenu()}>
                 <svg width="16px" height="16px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
