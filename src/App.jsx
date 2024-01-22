@@ -1,12 +1,10 @@
 import React from "react";
-import Header from './component/header'
 import './App.css'
-import Swipers from './component/swiper'
-import ReactDOM from "react-dom/client";
 import {createBrowserRouter,RouterProvider} from "react-router-dom";
 import Home from "./pages/home";
 import Checkout from "./pages/checkout";
 import Login from "./pages/login";
+import Hdetail from "./pages/Hdetail";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: "/checkout",
     element: <Checkout/>
+  },
+  {
+    path: "/detail",
+    element: <Hdetail/>
   }
 ])
 function App() {
