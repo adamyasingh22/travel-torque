@@ -66,7 +66,7 @@ const Login = () => {
             </div>
             <div className="flex justify-center item-center pt-4 text-center">
               <p>Don’t have an account?</p>
-              <a class="text-[#2F80ED] pl-2" href="">Register</a>
+              <a class="text-[#2F80ED] pl-2" href="/register">Register</a>
             </div>
         </div>
       </div>

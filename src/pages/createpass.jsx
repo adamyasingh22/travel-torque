@@ -7,7 +7,7 @@ const Createpass = () => {
             </svg>
             <p className="font-serif max-sm:ml-2 text-[#726c6c] md:ml-4"><a href="/">Travel Torque</a></p>
           </div>
-          <div className="flex flex-col h-5/6 mt-8 w-96 px-8 self-center  rounded-xl mx-auto md:shadow-lg bg-white pt-8">
+          <div className="flex flex-col h-4/6 mt-8 w-96 px-8 self-center  rounded-xl mx-auto md:shadow-lg bg-white pt-10">
              <h1 className="text-lg font-medium text-center"> Create Password</h1>
              <p className="text-center text-xs mt-4">Use a minimum of 10 characters, including letters, lowercase letters, and numbers.</p>
              <div className="flex flex-col justify-center  w-full mt-8">

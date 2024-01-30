@@ -7,6 +7,7 @@ import Login from "./pages/login";
 import Hdetail from "./pages/Hdetail";
 import Register from "./pages/register";
 import Createpass from "./pages/createpass";
+import Forgetpass from "./pages/forgetpass";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/createpassword",
     element: <Createpass/>
+  },
+  {
+    path: "/forgetpassword",
+    element: <Forgetpass/>
   },
   {
     path: "/checkout",
