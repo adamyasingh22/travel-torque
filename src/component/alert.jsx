@@ -1,6 +1,6 @@
 const Alert = () =>{
     return (
-        <div className="mt-16 bg-[#FCEFCA] px-32 font-serif py-2 md:mx-32 rounded-lg">
+        <div className="mt-16 bg-[#FCEFCA] md:px-32 max-sm:px-8 font-serif py-2 md:mx-32 rounded-lg">
             <div className="md:flex md:items-center md:justify-center ">
             <div className="max-sm:flex max-sm:justify-center">
             <svg className="" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
