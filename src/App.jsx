@@ -5,6 +5,8 @@ import Home from "./pages/home";
 import Checkout from "./pages/checkout";
 import Login from "./pages/login";
 import Hdetail from "./pages/Hdetail";
+import Register from "./pages/register";
+import Createpass from "./pages/createpass";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -13,6 +15,14 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login/>
+  },
+  {
+    path: "/register",
+    element: <Register/>
+  },
+  {
+    path: "/createpassword",
+    element: <Createpass/>
   },
   {
     path: "/checkout",
