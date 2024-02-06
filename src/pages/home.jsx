@@ -11,7 +11,6 @@ import VacData from '../data/vacation.json'
 import HotelData from "../data/hotel.json"
 import Apiservice from "../apiService/get";
 
-
 const Home = () => {
 
     return  (

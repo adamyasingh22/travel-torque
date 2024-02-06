@@ -1,6 +1,24 @@
-import React , {useState} from 'react';
+import React , {useState,useEffect} from 'react';
+import axios from 'axios';
 const Header  = () =>{
  const [mobMenu,setMobmenu]=useState(false);
+  const [location, setLocation] = useState(null);
+  const [error, setError] = useState(null);
+
+     
+
+  const getLocation = async () => {
+    try {
+      const response = await axios.get(`http://ip-api.com/json`);
+      if (response.status === 200) {
+        setLocation(response.data.city + ' , ' + response.data.country);
+      } else {
+        throw new Error('Error fetching location data');
+      }
+    } catch (error) {
+      setError(error.message);
+    }
+  };
 
  const TogglemobileMenu = (e) => {
    if(mobMenu){
@@ -47,7 +65,21 @@ const Header  = () =>{
                 <li className='pl-4'>
                     Contact
                 </li>
-                <li className='rounded-md  font-semibold ml-32'>
+                <li className='rounded-md  font-semibold ml-40'>
+                    <div className='md:flex md:justify-center md:items-center cursor-pointer' onClick={getLocation}>
+                        <img src="../../public/images/location.png" alt="location"/>
+                        
+                        { !location ? 
+                         <p className='ml-2 underline font-sans'>Current Location</p>
+                         :
+                         <>
+                         <p className="ml-2"> {location}</p>
+                         
+                         </>
+                        }
+                    </div>
+                    </li>
+                <li className='rounded-md  font-semibold ml-6'>
                     <button type="button" class="text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"><a href="/register">Register</a></button>
                     </li>
                 <li className='rounded-md font-semibold ml-4'>
