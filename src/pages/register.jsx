@@ -16,7 +16,8 @@ const Register = () => {
   const clicked = () =>{
     if(email != ""){
       if(validateEmail(email)){
-          setShow(show+1)
+         emailEnter(email)
+          
       }else{
         setError("Invalid Email Address!!")
       } 
@@ -38,13 +39,43 @@ const Register = () => {
     
   }
   const passwordCheck = () =>{
-    console.log(passwrd,passwrd1)
     if(passwrd != passwrd1){
       setError("Please Verify Your password!!")
     }else{
       setError("")
+      let store = localStorage.getItem("login")
+      let token = [{"email": email , "password": passwrd}]
+     localStorage.setItem("login",JSON.stringify(token))
+     alert("Congo! Account Created Successfully")
+     window.location = "/login"
+
     }
     
+    
+  }
+
+  const emailEnter = (email) =>{
+    let exist = localStorage.getItem("login")
+    
+    if(!exist){
+      setShow(show+1)
+      setError("")
+      
+    }else if(exist){
+      exist = JSON.parse(exist)
+      for(let i=0;i<exist.length;i++){
+        if(exist[i].email == email){
+          setError("Email Already Exist , Kindly Login !!")
+        }
+        else{
+          // let token = [{"email": email , "password": ""}]
+          setShow(show+1)
+          setError("")
+          // localStorage.setItem("login",JSON.stringify([...exist,token]))
+        }
+      }
+
+    }
     
   }
 
