@@ -15,7 +15,7 @@ const Home = () => {
 
     return  (
         <>
-        <Header/>
+        <Header color={"#fff"}/>
         <Swipers/>
         {/* <Search/> */}
         <Alert/>
