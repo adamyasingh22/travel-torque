@@ -1,0 +1,32 @@
+[
+    {
+        "key" : "1",
+        "range" : "Fishing",
+        "property" : "200"
+    },
+    {
+        "key" : "2",
+        "range" : "cyclicing",
+        "property" : "100"
+    },
+    {
+        "key" : "3",
+        "range" : "gym",
+        "property" : "50"
+    },
+    {
+        "key" : "4",
+        "range" : "Beach",
+        "property" : "28"
+    },
+    {
+        "key" : "5",
+        "range" : "Sauna",
+        "property" : "32"
+    },
+    {
+        "key" : "6",
+        "range" : "night lights",
+        "property" : "67"
+    }
+]

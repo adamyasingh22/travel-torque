@@ -8,6 +8,7 @@ import Hdetail from "./pages/Hdetail";
 import Register from "./pages/register";
 import Createpass from "./pages/createpass";
 import Forgetpass from "./pages/forgetpass";
+import Searchresult from "./pages/searchresult";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "/checkout",
     element: <Checkout/>
+  },
+  {
+    path: "/Searchresults",
+    element: <Searchresult/>
   },
   {
     path: "/detail",

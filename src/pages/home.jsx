@@ -24,7 +24,7 @@ const Home = () => {
 
     return  (
         <>
-        <Header/>
+        <Header color={"#fff"}/>
         {show && <Welcome show={setShow}/>}
         <Swipers/>
         {/* <Search/> */}

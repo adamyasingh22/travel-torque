@@ -1,0 +1,33 @@
+[
+    {
+        "key" : "1",
+        "range" : "Free cancelation",
+        "property" : "200"
+    },
+    {
+        "key" : "2",
+        "range" : "spa",
+        "property" : "100"
+    },
+    {
+        "key" : "3",
+        "range" : "Beach front",
+        "property" : "50"
+    },
+    {
+        "key" : "4",
+        "range" : "Hot tub",
+        "property" : "28"
+    },
+    {
+        "key" : "5",
+        "range" : "Book withour Credit card",
+        "property" : "32"
+    },
+    {
+        "key" : "6",
+        "range" : "No prepayment",
+        "property" : "36"
+    }
+
+]
