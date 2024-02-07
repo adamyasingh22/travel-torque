@@ -12,7 +12,10 @@ const Login = () => {
         if(token[i].email == email && token[i].password == password){
           alert("Login Successful")
           setError("")
+          
           window.location = "/"
+          localStorage.setItem("islogin","true")
+          
         }else{
           setError("Invalid Credentials")
         }

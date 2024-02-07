@@ -9,13 +9,23 @@ import Subfooter from "../component/subfooter";
 import Swipers from "../component/swiper";
 import VacData from '../data/vacation.json'
 import HotelData from "../data/hotel.json"
-import Apiservice from "../apiService/get";
+import Welcome from "../component/welcome";
 
 const Home = () => {
+    const[show,setShow]=useState(false)
+
+    useEffect(()=>{
+        
+        if( localStorage.getItem("islogin") != null){
+            setShow(true)
+        }
+    },[])
+
 
     return  (
         <>
         <Header/>
+        {show && <Welcome show={setShow}/>}
         <Swipers/>
         {/* <Search/> */}
         <Alert/>

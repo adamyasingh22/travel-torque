@@ -6,7 +6,7 @@ import 'swiper/css';
 const Swipers = ()=>{
 
   return (
-    <div className=''>
+    
      <div className='max-sm:h-52 md:h-[500px] overflow-hidden'>
 
             <Swiper
@@ -31,7 +31,7 @@ const Swipers = ()=>{
         </div>
         
     
-    </div>
+   
   )
 }
 export default Swipers;

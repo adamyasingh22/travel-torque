@@ -1,28 +1,36 @@
 import React , {useState,useEffect} from 'react';
 import axios from 'axios';
+import Welcome from './welcome';
 const Header  = () =>{
  const [mobMenu,setMobmenu]=useState(false);
   const [location, setLocation] = useState(null);
   const [error, setError] = useState(null);
+  const[show,setShow]=useState(false)
 
      // Create a function to display the location confirmation popup
      function confirmLocation() {
-  // Display an alert for location confirmation
-     alert('Looking for Current Location?')
-    getLocation()
+      // Display an alert for location confirmation
+     
+     setShow(true)
+     getLocation()
+
      }
      
      // Call the confirmLocation function to display the popup
      useEffect(()=>{
-    //  setTimeout(getLocation,10000)
-     setTimeout(confirmLocation,4000)
+      let loc = localStorage.getItem('location')
+      setLocation(loc)
+      if(!loc){
+        setTimeout(confirmLocation,4000)
+      }
      },[])
 
   const getLocation = async () => {
     try {
       const response = await axios.get(`http://ip-api.com/json`);
       if (response.status === 200) {
-        setLocation(response.data.city + ' , ' + response.data.country);
+        setLocation(response.data.city + ',' + response.data.country);
+        localStorage.setItem('location', response.data.city + ',' + response.data.country);
       } else {
         throw new Error('Error fetching location data');
       }
@@ -44,6 +52,7 @@ const Header  = () =>{
 
     return (
         <>
+        {show && <Welcome show={setShow} time={4} showTime={false} title=" Alert !!" content="Using your current location to get your dream vacation " button="No"/>}
         <div className="flex p-4 max-sm:items-center border-b-2 max-sm:border-black md:px-32 justify-items-start items-center bg-white">
             
             <div className="md:hidden lg:hidden " onClick={(e)=>TogglemobileMenu()}>
