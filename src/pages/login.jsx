@@ -1,4 +1,24 @@
+import { useState } from "react"
 const Login = () => {
+  const [email, setEmail] = useState("")
+  const[password, setPassword] = useState("")
+  const[error,setError]=useState("")
+
+  const handleLogin = () => {
+    if(email != "" && password != ""){
+      let store = localStorage.getItem("login")
+      let token = JSON.parse(store)
+      for(let i=0;i<token.length;i++){
+        if(token[i].email == email && token[i].password == password){
+          alert("Login Successful")
+          setError("")
+          window.location = "/"
+        }else{
+          setError("Invalid Credentials")
+        }
+      }
+    }
+  }
     return (
       <div className="h-screen w-full bg-gray-100">
         <div className="max-sm:ml-6 flex max-md:flex-grow  pt-4 justify-center items-center">
@@ -7,13 +27,15 @@ const Login = () => {
           </svg>
           <p className="font-serif max-sm:ml-2 text-[#726c6c] md:ml-4"><a href="/">Travel Torque</a></p>
         </div>
+        <p className="font-semibold text-[#e21e26] h-4 pt-3 text-center">{error}</p>
         <div className="flex flex-col h-5/6 mt-8 w-96 px-8 self-center  rounded-xl mx-auto md:shadow-lg bg-white pt-8">
             <h1 className="text-lg font-medium text-center">Sign in</h1>
+            
             <div className="flex flex-col justify-center  w-full">
                 <p className="text-xs mb-2">Email address</p>
-                <input placeholder="adamyasingh22@gmail.com" className="bg-gray-100 px-4 py-1 w-full focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 rounded-md"></input>
+                <input placeholder="adamyasingh22@gmail.com" value={email} className="bg-gray-100 px-4 py-1 w-full focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 rounded-md" onChange={(e)=>setEmail(e.target.value)}></input>
                 <p className="text-xs mt-5 mb-2">Password</p>
-                <input placeholder="*******" className="bg-gray-100  px-4 py-1 w-full rounded-md"></input>
+                <input placeholder="*******" value={password} className="bg-gray-100  px-4 py-1 w-full rounded-md" onChange={(e)=>setPassword(e.target.value)}></input>
                 <svg className="-mt-6 ml-72" width="17" height="17" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="eye 1">
                 <g id="Group">
@@ -34,7 +56,7 @@ const Login = () => {
             </div>
 
             <div className="pt-4">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white py-1 px-16 rounded w-full">Continue with email</button>
+                <button class="bg-blue-500 hover:bg-blue-700 text-white py-1 px-16 rounded w-full" onClick={handleLogin}>Continue with email</button>
             </div>
             <div className="flex justify-center items-center w-full">
               <div className="border-t border-[#E0E0E0] grow" />

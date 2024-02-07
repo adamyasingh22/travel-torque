@@ -5,6 +5,18 @@ const Header  = (props) =>{
   const [location, setLocation] = useState(null);
   const [error, setError] = useState(null);
 
+     // Create a function to display the location confirmation popup
+     function confirmLocation() {
+  // Display an alert for location confirmation
+     alert('Looking for Current Location?')
+    getLocation()
+     }
+     
+     // Call the confirmLocation function to display the popup
+     useEffect(()=>{
+    //  setTimeout(getLocation,10000)
+     setTimeout(confirmLocation,4000)
+     },[])
   const {color = 'white'} = props 
 
   const getLocation = async () => {
