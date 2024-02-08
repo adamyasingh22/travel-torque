@@ -1,4 +1,5 @@
 import React , {useState,useEffect} from "react";
+import Welcome from "../component/welcome";
 
 const Register = () => {
   const [email,setEmail]=useState("")
@@ -8,6 +9,7 @@ const Register = () => {
   const [pass1,setPass1]=useState(false)
   const [passwrd,setPasswrd]=useState(false)
   const [passwrd1,setPasswrd1]=useState(false)
+  const [alert,setAlert]=useState(false)
   const validateEmail = (email) => {
   var re = /\S+@\S+\.\S+/;
   return re.test(email);
@@ -39,15 +41,24 @@ const Register = () => {
     
   }
   const passwordCheck = () =>{
+    let accounts = localStorage.getItem("login")
+    accounts = JSON.parse(accounts)
     if(passwrd != passwrd1){
-      setError("Please Verify Your password!!")
-    }else{
+      setError("Please Verify Your passwords!!")
+    }else if(passwrd == "" || passwrd1 == ""){
+      setError("Please Enter Your password!!")
+    }
+    else{
       setError("")
-      let store = localStorage.getItem("login")
-      let token = [{"email": email , "password": passwrd}]
-     localStorage.setItem("login",JSON.stringify(token))
-     alert("Congo! Account Created Successfully")
-     window.location = "/login"
+      setAlert(true)
+      let token = {"email": email , "password": passwrd}
+      if(accounts == null){
+        localStorage.setItem("login",JSON.stringify([token]))
+      }else{
+        localStorage.setItem("login",JSON.stringify([...accounts,token]))
+      }
+      
+      
 
     }
     
@@ -79,6 +90,11 @@ const Register = () => {
     
   }
 
+  const confirm = () =>{
+    setAlert(false)
+    window.location = "/login"
+  }
+
    const showPass1 = () =>{
     if(pass1){
       setPass1(false)
@@ -95,6 +111,8 @@ const Register = () => {
 
 
     return (
+       <>
+       {alert && <Welcome show={setAlert} time={60} showTime={false} title="Alert !!" content="Congrats !! Your account has been created" buttonText="Close" buttonAction={confirm}/>}
         <div className="h-screen w-full bg-gray-100">
           <div className="max-sm:ml-6 flex max-md:flex-grow  pt-4 justify-center items-center">
            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -198,6 +216,7 @@ const Register = () => {
 
 
         </div>
+        </>
     )
 }
 export default Register; 

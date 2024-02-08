@@ -10,22 +10,27 @@ import Swipers from "../component/swiper";
 import VacData from '../data/vacation.json'
 import HotelData from "../data/hotel.json"
 import Welcome from "../component/welcome";
+import commonHelper from "../helper/commonHelper";
 
 const Home = () => {
     const[show,setShow]=useState(false)
 
     useEffect(()=>{
-        
-        if( localStorage.getItem("islogin") != null){
+        // console.log(">>> condition check",  commonHelper.checkLogin())
+        if( commonHelper.checkLogin()){
             setShow(true)
         }
     },[])
+
+    const copy = ()=>{
+        navigator.clipboard.writeText("weekend45")
+    }
 
 
     return  (
         <>
         <Header color={"#fff"}/>
-        {show && <Welcome show={setShow}/>}
+        {show && <Welcome show={setShow} time={10} showTime={true} title={`Welcome !! ${commonHelper.getEmail()}`} content="Hurry !! Special offer for your next trip will end in  "buttonText="Copy to Clipboard" buttonAction={copy}/>}
         <Swipers/>
         {/* <Search/> */}
         <Alert/>
