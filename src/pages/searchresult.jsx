@@ -74,7 +74,23 @@ const Searchresult = () => {
                    </div>
                 </div>
                 <div className="w-2/3">
-                    <p>this is a travel website</p>
+                    <p className="text-xl font-bold">Melbourne : 2,582 search results found</p>
+                    <div className="flex mt-2">
+                        <button class= "border border-blue-500 bg-white py-2 px-4 rounded-l">Our top picks</button>
+                        <button class= "border border-blue-500 bg-white py-2 px-4">Hotel & residents</button>
+                        <button class= "border border-blue-500 bg-white py-2 px-4">Residence</button>
+                        <button class= "border border-blue-500 bg-white py-2 px-4">Resort</button>
+                        <button class = "border border-blue-500 bg-white py-2 px-4 rounded-r">Shared Space</button>
+                    </div>
+                    <div className="grid grid-cols-3 gap-3 mt-8 p-4 border border-gray-300">
+                        <div className="">
+                            <img  className="rounded-2xl md:h-[194px] md:w-[95%]" src="../../public/images/beaches.jpg"></img>
+                        </div>
+                        <div className="col-span-2">
+                            <p className="text-l font-semibold">Lakeside Motel Warefront</p>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
