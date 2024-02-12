@@ -125,7 +125,7 @@ const Checkout = () =>{
 
 
                <div className="bg-white pb-2 rounded-md md:mb-12 max-sm:mb-8">
-                <img className="rounded-t-xl max-sm:w-full" src="../../public/images/checkout1.jpg"/>
+                <img className="rounded-t-xl max-sm:w-full" src="/images/checkout1.jpg"/>
                 <p className="text-[#181818] ml-4 pt-2 font-medium">Lakeside Motel Warefront</p>
                 <div className="ml-4">
                     <span className="mt-1 flex items-center font-serif ">

@@ -88,7 +88,7 @@ const Header  = (props) =>{
                 </li>
                 <li className='rounded-md  font-semibold ml-40'>
                     <div className='md:flex md:justify-center md:items-center cursor-pointer' onClick={getLocation}>
-                        <img src="../../public/images/location.png" alt="location"/>
+                        <img src="/images/location.png" alt="location"/>
                         
                         { !location ? 
                          <p className='ml-2 underline font-sans'>Current Location</p>

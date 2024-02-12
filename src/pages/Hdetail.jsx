@@ -9,14 +9,14 @@ const Hdetail = () => {
             {/* photo gallery start */}
             <div className="md:flex md:p-4 max-sm:px-2">
             <div className="md:w-2/3 max-sm:p-2">
-                <img className="rounded-2xl" src="../../public/images/detail.jpg" alt=""/>
+                <img className="rounded-2xl" src="/images/detail.jpg" alt=""/>
             </div>
             <div className="md:w-1/3">
                 <div className="max-sm:p-2 md:pb-2">
-                    <img className="rounded-2xl" src="../../public/images/detail-1.jpg" alt=""/>
+                    <img className="rounded-2xl" src="/images/detail-1.jpg" alt=""/>
                 </div>
                 <div className=" max-sm:p-2 md:pt-2">
-                    <img className="rounded-2xl" src="../../public/images/detail-2.jpg" alt=""/>
+                    <img className="rounded-2xl" src="/images/detail-2.jpg" alt=""/>
                 </div>
 
             </div>
@@ -226,10 +226,10 @@ const Hdetail = () => {
                     </div>
                     <div className="md:flex ">
                         <div className="md:flex md:items-center md:w-1/3 max-sm:p-8 ">
-                        <img className="md:rounded-2xl w-full" src="../../public/images/coupon.jpg"/>
+                        <img className="md:rounded-2xl w-full" src="/images/coupon.jpg"/>
                         </div>
                         <div className="md:w-1/3 md:p-8">
-                            <img className="md:flex md:items-center max-sm:rounded-t-3xl" src="../../public/images/room-4.jpg"/>
+                            <img className="md:flex md:items-center max-sm:rounded-t-3xl" src="/images/room-4.jpg"/>
                             <div className="bg-white md:pl-4 pb-4 rounded-b-3xl ">
                                 <p className="text-[#1A1A1A] text-sm font-semibold pt-4 max-sm:text-center">
                                     Standard twin ben, Multiple beds
@@ -269,7 +269,7 @@ const Hdetail = () => {
                             </div>
                         </div>
                         <div className="md:w-1/3 md:p-8 max-sm:mt-8">
-                            <img className="md:flex md:items-center max-sm:rounded-t-3xl" src="../../public/images/room-4.jpg"/>
+                            <img className="md:flex md:items-center max-sm:rounded-t-3xl" src="/images/room-4.jpg"/>
                             <div className="bg-white md:pl-4 pb-4 rounded-b-3xl ">
                                 <p className="text-[#1A1A1A] text-sm font-semibold pt-4 max-sm:text-center">
                                     Standard twin ben, Multiple beds

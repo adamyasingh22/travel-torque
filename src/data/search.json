@@ -1,7 +1,7 @@
 [
     {
         "key" : "1",
-        "url" : "../../public/images/waterfront.jpg",
+        "url" : "/images/waterfront.jpg",
         "hotel" : "Lakeside Motel Warefront",
         "star" : "4.5 (1200 Reviews)",
         "visible" : "visible",
@@ -10,7 +10,7 @@
     },
     {
         "key" : "2",
-        "url" : "../../public/images/reece.jpeg",
+        "url" : "/images/reece.jpeg",
         "hotel" : "Julia Dens Resort",
         "star" : "4.5 (1100 Reviews)",
         "visible" : "invisible",
@@ -19,7 +19,7 @@
     },
     {
         "key" : "3",
-        "url" : "../../public/images/Fireside.jpg",
+        "url" : "/images/Fireside.jpg",
         "hotel" : "Aghnim Scepter Hotel",
         "star" : "3.5 (900 Reviews)",
         "visible" : "invisible",
@@ -28,7 +28,7 @@
     },
     {
         "key" : "4",
-        "url" : "../../public/images/Oculous.jpg",
+        "url" : "/images/Oculous.jpg",
         "hotel" : "Marineford Hotel",
         "star" : "4.0 (1410 Reviews)",
         "visible" : "visible",
@@ -37,7 +37,7 @@
     },
     {
         "key" : "5",
-        "url" : "../../public/images/room-4.jpg",
+        "url" : "/images/room-4.jpg",
         "hotel" : "Shanghai Open House",
         "star" : "3.0 (810 Reviews)",
         "visible" : "invisible", 
@@ -46,7 +46,7 @@
     },
     {
         "key" : "6",
-        "url" : "../../public/images/sydney.jpg",
+        "url" : "/images/sydney.jpg",
         "hotel" : "Maimi City frontier",
         "star" : "4.5 (1510 Reviews)",
         "visible" : "visible",
@@ -55,7 +55,7 @@
     },
     {
         "key" : "6",
-        "url" : "../../public/images/waterfront.jpg",
+        "url" : "/images/waterfront.jpg",
         "hotel" : "Lakeside Motel Warefront",
         "star" : "3.5 (1510 Reviews)",
         "visible" : "invisible",

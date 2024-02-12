@@ -3,20 +3,20 @@
     "subTitle" : "",
     "place" : [
         {
-            "img": "../../public/images/waterfront.jpg",
+            "img": "/images/waterfront.jpg",
             "name" : "Lakeside Motel Warefront",
             "properties" : "2246 properties"
         },
         {
-            "img": "../../public/images/reece.jpeg",
+            "img": "/images/reece.jpeg",
             "name" : "Recce Graham resort",
             "properties" : "1278 properties"
         },{
-            "img": "../../public/images/Fireside.jpg",
+            "img": "/images/Fireside.jpg",
             "name" : "Fireside Dinners",
             "properties" : "480 properties"
         },{
-            "img": "../../public/images/Oculous.jpg",
+            "img": "/images/Oculous.jpg",
             "name" : "Oculous Inn Stay",
             "properties" : "320 properties"
         }
