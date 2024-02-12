@@ -264,7 +264,7 @@ const Hdetail = () => {
 
                                 </div>
 
-                                <div className="bg-[#2F80ED] p-2 m-4 text-center rounded-3xl font-semibold ">Reserve suite</div>
+                                <a href="checkout"><div className="bg-[#2F80ED] p-2 m-4 text-center rounded-3xl font-semibold ">Reserve suite</div></a>
                                 
                             </div>
                         </div>
@@ -304,7 +304,7 @@ const Hdetail = () => {
 
                                 </div>
 
-                                <div className="bg-[#2F80ED] p-2 m-4 text-center rounded-3xl font-semibold">Reserve suite</div>
+                                <a href="checkout"><div className="bg-[#2F80ED] p-2 m-4 text-center rounded-3xl font-semibold">Reserve suite</div></a>
                                 
                             </div>
                         </div>

@@ -10,11 +10,13 @@ const Vacation = (props) =>{
             {
                 props.info?.place.map((item , index)=>{
                     return(
+                        <a href="/detail">
                         <div className="max-sm:m-4 max-sm:text-center" key={index}>
                         <img className="rounded-xl md:h-[136px] md:w-[90%] max-sm:w-full max-sm:h-56" src={item.img}/>
                         <p className="mt-2 font-bold">{item.name}</p>
                         <p className="mt-2">{item.properties}</p>
                         </div>
+                        </a>
                     )
                 })
             }

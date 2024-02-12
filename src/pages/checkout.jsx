@@ -1,9 +1,22 @@
 import Alert from "../component/alert";
 import Footer from "../component/footer";
 import Header from "../component/header";
-
+import React , {useEffect , useState} from "react";
 const Checkout = () =>{
     const count = [1,2,3,4]
+    const[name1,setName1]=useState("")
+    const[name2,setName2]=useState("")
+    const[mobile,setMobile]=useState("")
+   const checkOut = () =>{
+    if(name1 === ""){
+
+    }else if (name2 === ""){
+
+    }else if (mobile === ""){
+
+    }
+   }
+
    return (
     <div className="bg-[#F4F4F4]">
         <Header/>
@@ -28,17 +41,17 @@ const Checkout = () =>{
                 <div className="md:flex md:items-center font-sans max-sm:pt-8">
                 <div className="md:mx-4 md:my-4 max-sm:p-4 max-sm:flex max-sm:items-center">
                     <p className="font-medium my-1 max-sm:mr-24">First Name</p>
-                    <input className="bg-gray-100 rounded-md p-1 " value="" placeholder=""></input>
+                    <input className="bg-gray-100 rounded-md p-1 " value={name1} onChange={(e)=>setName1(e.target.value)} placeholder=""></input>
                 </div>
                 <div className="md:mx-4 md:my-4 max-sm:p-4 max-sm:flex max-sm:items-center">
                     <p className="font-medium my-1 max-sm:mr-24">Last Name</p>
-                    <input className="bg-gray-100 rounded-md p-1 " value="" placeholder=""></input>
+                    <input className="bg-gray-100 rounded-md p-1 " value={name2} onChange={(e)=>setName2(e.target.value)} placeholder=""></input>
                 </div>
                 </div>
                 <div className="font-sans md:w-2/3">
                 <div className="md:mx-4 mb-4 max-sm:p-4 max-sm:flex max-sm:items-center">
                     <p className="font-medium my-1 max-sm:mr-[60px]">Mobile Number</p>
-                    <input className="bg-gray-100 md:w-2/3 rounded-md p-1" value="" placeholder=""></input>
+                    <input className="bg-gray-100 md:w-2/3 rounded-md p-1" value={mobile} onChange={(e)=>setMobile(e.target.value)} placeholder=""></input>
                 </div>
                 
                 </div>
@@ -73,7 +86,7 @@ const Checkout = () =>{
                     <p className="ml-2 font-semibold">Confirm your UPI Id</p>
                 </div>
                 <div className="max-sm:mx-auto bg-[#333333] text-white w-1/2 my-8 text-center px-auto py-4 rounded-xl">
-                 <p clasName="font-sans">Book Now & Pay Later </p>
+                 <p clasName="font-sans" ><a href="/?confirm">Book Now & Pay Later</a></p>
                 </div>
 
                 </div>
