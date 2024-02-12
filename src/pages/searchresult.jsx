@@ -3,7 +3,8 @@ import Header from "../component/header";
 import Budget from "../data/budget.json";
 import Popular from "../data/popular.json";
 import Activities from "../data/activities.json";
-
+import Searchcomp from "../component/searchcomp";
+import Search from "../data/search.json";
 
 function budgetentry(item){
     return(
@@ -32,6 +33,19 @@ function activityentry(activity){
           money = {activity.range}
           number = {activity.property}
           />
+    )
+}
+
+function searchentry(search){
+    return (
+        <Searchcomp
+         id = {search.key}
+         link = {search.url}
+         name = {search.hotel}
+         reviews = {search.star}
+         book = {search.now}
+         off = {search.dis}
+         />
     )
 }
    
@@ -82,15 +96,7 @@ const Searchresult = () => {
                         <button class= "border border-blue-500 bg-white py-2 px-4">Resort</button>
                         <button class = "border border-blue-500 bg-white py-2 px-4 rounded-r">Shared Space</button>
                     </div>
-                    <div className="grid grid-cols-3 gap-3 mt-8 p-4 border border-gray-300">
-                        <div className="">
-                            <img  className="rounded-2xl md:h-[194px] md:w-[95%]" src="../../public/images/beaches.jpg"></img>
-                        </div>
-                        <div className="col-span-2">
-                            <p className="text-l font-semibold">Lakeside Motel Warefront</p>
-
-                        </div>
-                    </div>
+                     {Search.map(searchentry)}
                 </div>
             </div>
         </div>
