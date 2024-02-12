@@ -20,10 +20,10 @@ const Swipers = ()=>{
                 
             >
 
-                <SwiperSlide><img src="./../../public/images/cover-1.jpg" /></SwiperSlide>
-                <SwiperSlide><img src="./../../public/images/cover-2.jpg" /></SwiperSlide>
-                <SwiperSlide><img src="./../../public/images/cover-3.jpg" /></SwiperSlide>
-                <SwiperSlide><img src="./../../public/images/cover-4.jpg" /></SwiperSlide>
+                <SwiperSlide><img src="/images/cover-1.jpg" /></SwiperSlide>
+                <SwiperSlide><img src="/images/cover-2.jpg" /></SwiperSlide>
+                <SwiperSlide><img src="/images/cover-3.jpg" /></SwiperSlide>
+                <SwiperSlide><img src="/images/cover-4.jpg" /></SwiperSlide>
 
             </Swiper>
 

@@ -5,6 +5,8 @@ import Popular from "../data/popular.json";
 import Activities from "../data/activities.json";
 import Searchcomp from "../component/searchcomp";
 import Search from "../data/search.json";
+import Alert from "../component/alert";
+import Footer from "../component/footer";
 
 function budgetentry(item){
     return(
@@ -43,6 +45,7 @@ function searchentry(search){
          link = {search.url}
          name = {search.hotel}
          reviews = {search.star}
+         visible = {search.show}
          book = {search.now}
          off = {search.dis}
          />
@@ -57,7 +60,7 @@ const Searchresult = () => {
                 <Header color={""} />
             </div>
             <div className="flex p-8 space-x-6">
-                <div className="w-1/6">
+                <div className="w-1/6 ">
                    <div className="bg-gray-100 text-center pb-3 pt-2 space-y-3 rounded-lg">
                       <p>Search by property name</p>
                       <input placeholder="eg. beach" className=""></input>
@@ -98,6 +101,12 @@ const Searchresult = () => {
                     </div>
                      {Search.map(searchentry)}
                 </div>
+            </div>
+            <div className="mt-8">
+                <Alert/>
+            </div>
+            <div>
+                <Footer/>
             </div>
         </div>
     )
