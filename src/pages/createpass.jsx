@@ -1,4 +1,14 @@
+import { useState } from "react";
+import { useLocation } from 'react-router-dom';
+
 const Createpass = () => {
+  const location = useLocation();
+  const[pass,setPass]=useState("")
+  const[pass1,setPass1]=useState("")
+  const queryParams = new URLSearchParams(location.search);
+  const paramValue = queryParams.get('email');
+  // console.log(">>>",paramValue)
+  const[email,setEmail]=useState(paramValue ? paramValue : "")
     return (
         <div className="h-screen w-full bg-gray-100">
           <div className="max-sm:ml-6 flex max-md:flex-grow  pt-4 justify-center items-center">
@@ -12,7 +22,7 @@ const Createpass = () => {
              <p className="text-center text-xs mt-4">Use a minimum of 10 characters, including letters, lowercase letters, and numbers.</p>
              <div className="flex flex-col justify-center  w-full mt-8">
                <p className="text-xs mb-2">Password</p>
-               <input placeholder="******" className="bg-gray-100 px-4 py-1 w-full focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 rounded-md"></input>
+               <input placeholder="******" className="bg-gray-100 px-4 py-1 w-full focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 rounded-md" value={pass} onChange={(e)=>setPass(e.target.value)}></input>
                <svg className="-mt-6 ml-72" width="17" height="17" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                <g id="eye 1">
                <g id="Group">
@@ -22,7 +32,7 @@ const Createpass = () => {
                </g>
                </svg>
                <p className="text-xs mt-5 mb-2">Confirm Password</p>
-               <input placeholder="*******" className="bg-gray-100  px-4 py-1 w-full rounded-md"></input>
+               <input placeholder="*******" className="bg-gray-100  px-4 py-1 w-full rounded-md" value={pass1} onChange={(e)=>setPass1(e.target.value)}></input>
                <svg className="-mt-6 ml-72" width="17" height="17" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                <g id="eye 1">
                <g id="Group">

@@ -1,4 +1,24 @@
+import { useState } from "react";
+
 const Forgetpass = () => {
+ 
+  const verify = ()=>{
+    let exist = localStorage.getItem("login")
+    exist = JSON.parse(exist)
+    if(exist){
+      for(let i=0;i<exist.length;i++){
+      if(exist[i].email == email){
+        window.location = `/createpassword?email=${email}`
+      }else if(i == exist.length-1){
+        alert("Email not Registered !!")
+        window.location = "/register"
+      }
+    }
+    }
+    
+  }
+
+  const[email,setEmail]=useState("")
     return (
         <div className="h-screen w-full bg-gray-100">
             <div className="max-sm:ml-6 flex max-md:flex-grow  pt-4 justify-center items-center">
@@ -12,10 +32,10 @@ const Forgetpass = () => {
               <p className="text-center text-xs mt-4">We’ll send you a link to reset it. Enter your email address used for My Dream Place</p>
               <div className="flex flex-col justify-center  w-full mt-8">
                 <p className="text-xs mb-2">Email Address</p>
-                <input placeholder="adamyasingh22@gmail.com" className="bg-gray-100 px-4 py-1 w-full focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 rounded-md"></input>
+                <input placeholder="adamyasingh22@gmail.com" value={email} className="bg-gray-100 px-4 py-1 w-full focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 rounded-md" onChange={(e)=>setEmail(e.target.value)}></input>
               </div>
               <div className="pt-4">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white py-1 px-16 rounded w-full">Sent reset link</button>
+                <button class="bg-blue-500 hover:bg-blue-700 text-white py-1 px-16 rounded w-full" onClick={()=>{verify()}}>Create a password</button>
               </div>
               <div className="Flex justify-center item-center pt-4 text-center">
                 <p className="text-xs">By creating an account, you agree with our</p>

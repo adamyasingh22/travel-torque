@@ -13,6 +13,7 @@ import Welcome from "../component/welcome";
 import commonHelper from "../helper/commonHelper";
 
 const Home = () => {
+    var a = 20
     const[show,setShow]=useState(false)
 
     useEffect(()=>{
@@ -29,6 +30,7 @@ const Home = () => {
 
     return  (
         <>
+        
         <Header color={"#fff"}/>
         {show && <Welcome show={setShow} time={10} showTime={true} title={`Welcome !! ${commonHelper.getEmail()}`} content="Hurry !! Special offer for your next trip will end in  "buttonText="Copy to Clipboard" buttonAction={copy}/>}
         <Swipers/>
