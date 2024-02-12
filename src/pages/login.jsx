@@ -67,7 +67,7 @@ const Login = () => {
                 <label for="default-checkbox" class="ms-2 text-sm font-small text-black">Keep me signed in</label>
                 </div>
                 <div classname="">
-                 <a  class="text-xs font-medium" href=''>Forget Password?</a>
+                 <a  class="text-xs font-medium" href='/forgetpassword'>Forget Password?</a>
                 </div>
             </div>
             </div>
