@@ -2,11 +2,30 @@ import Alert from "../component/alert";
 import Footer from "../component/footer";
 import Header from "../component/header";
 import React , {useEffect , useState} from "react";
+import axios from "axios";
+import { useLocation } from 'react-router-dom';
 const Checkout = () =>{
     const count = [1,2,3,4]
+    const location = useLocation();
     const[name1,setName1]=useState("")
     const[name2,setName2]=useState("")
     const[mobile,setMobile]=useState("")
+    const[detail,setDetail]=useState()
+
+    useEffect(()=>{
+         getPageData()
+    },[])
+
+    const getPageData  = async ()  => {
+       let data = await axios.get(`http://localhost:3000/api/detail${location.search}`).then((res)=>{
+            if(res != 'undefined'){
+                
+                setDetail(res.data);
+                // console.log(">>>>>",detail)
+            }
+            }
+        )
+   }
    const checkOut = () =>{
     if(name1 === ""){
 
@@ -16,9 +35,14 @@ const Checkout = () =>{
 
     }
    }
+   const calReview = (elem) =>{
+       let sum = elem?.review_scores_accuracy + elem?.review_scores_cleanliness + elem?.review_scores_checkin + elem?.review_scores_communication + elem?.review_scores_location + elem?.review_scores_value;
+       return sum/6;
+   }
 
    return (
     <div className="bg-[#F4F4F4]">
+        {console.log(">>>>>>>>>>>> data",detail)}
         <Header/>
 
         <div className="">
@@ -138,8 +162,8 @@ const Checkout = () =>{
 
 
                <div className="bg-white pb-2 rounded-md md:mb-12 max-sm:mb-8">
-                <img className="rounded-t-xl max-sm:w-full" src="/images/checkout1.jpg"/>
-                <p className="text-[#181818] ml-4 pt-2 font-medium">Lakeside Motel Warefront</p>
+                <img className="rounded-t-xl max-sm:w-full" src={detail?.response[0]?.images?.picture_url}/>
+                <p className="text-[#181818] ml-4 pt-2 font-medium">{detail?.response[0]?.name}</p>
                 <div className="ml-4">
                     <span className="mt-1 flex items-center font-serif ">
                         {
@@ -173,7 +197,7 @@ const Checkout = () =>{
                         </svg>  
                     </span>
                     <p className="text-sm text-[#4F4F4F] mt-1">
-                        4.5 (1200 Reviews)
+                        {calReview(detail?.response[0]?.review_scores)} ({detail?.response[0]?.number_of_reviews} Reviews)
                     </p>
                     <div className="my-2 text-sm space-y-2">
                         <p className=" text-[#EB5757] font-semibold">Non refundable</p>
@@ -191,18 +215,18 @@ const Checkout = () =>{
                 <div className="bg-white rounded-b-md p-4 text-[#4F4F4F] ">
                     <div className="flex items-center justify-center space-x-20 md:my-2">
                         <p className="">1 room X 2 nights</p>
-                        <span className="flex justify-end">$ 120.32</span>
+                        <span className="flex justify-end">$ {detail?.response[0]?.price?.$numberDecimal}</span>
                     </div>
                     <div className="flex items-center justify-center space-x-20 my-2">
                         <p className="">Tax and service fees</p>
-                        <span className="flex justify-end">$ 8.32</span>
+                        <span className="flex justify-end">$ {detail?.response[0]?.cleaning_fee?.$numberDecimal}</span>
                     </div>
                     <svg className="my-4" xmlns="http://www.w3.org/2000/svg" width="full" height="2" viewBox="0 0 400 2" fill="none">
                     <path d="M0 1H400" stroke="#E0E0E0"/>
                     </svg>
                     <div className="flex items-center justify-center space-x-20 my-2 text-lg text-black">
                         <p className="text-semibold ">Total</p>
-                        <span className="flex justify-end">$130</span>
+                        <span className="flex justify-end">$ {Number(detail?.response[0]?.price?.$numberDecimal) + Number(detail?.response[0]?.cleaning_fee?.$numberDecimal)}</span>
                     </div>
                     <p className="text-[12px] font-semibold text-[#2F80ED] text-center my-1" >Use a coupon, credit or promotional code</p>
                     <div className="md:m-4 ">

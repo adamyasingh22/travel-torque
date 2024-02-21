@@ -11,6 +11,7 @@ import VacData from '../data/vacation.json'
 import HotelData from "../data/hotel.json"
 import Welcome from "../component/welcome";
 import commonHelper from "../helper/commonHelper";
+import axios from "axios";
 
 const Home = () => {
     var a = 20
@@ -21,6 +22,7 @@ const Home = () => {
         if( commonHelper.checkLogin()){
             setShow(true)
         }
+        let data = axios.get('http://localhost:3000/demo').then((res)=>{console.log(res)})
     },[])
 
     const copy = ()=>{

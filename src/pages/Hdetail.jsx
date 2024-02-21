@@ -1,7 +1,30 @@
+import React , {useEffect,useState} from "react";
 import Footer from "../component/footer";
 import Header from "../component/header";
 import Alert from '../component/alert'
+import { useLocation } from 'react-router-dom';
+import axios from "axios";
+import Map from "../component/map";
+
 const Hdetail = () => {
+    const location = useLocation();
+    const [detail, setDetail] = useState()
+    const [active, setActive] = useState(1)
+    useEffect(()=>{
+        getPageData()
+    },[location])
+
+   const getPageData  = async ()  => {
+       let data = await axios.get(`http://localhost:3000/api/detail${location.search}`).then((res)=>{
+            if(res != 'undefined'){
+                
+                setDetail(res.data);
+                // console.log(">>>>>",detail)
+            }
+            }
+        )
+   }
+
     const count = [1,2,3,4]
     return (
         <div className="bg-[#F4F4F4]">
@@ -25,16 +48,16 @@ const Hdetail = () => {
             {/* photo gallery end */}
             {/* short nav start */}
             <div className=" flex text-[#333333] border-b-2  p-4 space-x-8 tracking-normal font-semibold bg-white max-sm:rounded-full  shadow-xl max-sm:justify-center max-sm:items-center">
-            <p className="p-2 border-b-4 border-[#2F80ED]">Overview</p>
-            <p className="p-2">Rooms</p>
-            <p className="p-2 ">Guest Reviews</p>
+            <p className={`p-2 cursor-pointer ${active == 1 ? `border-b-4 border-[#2F80ED]` : ''}`} onClick={() => setActive(1)}>Overview</p>
+            <p className={`p-2 cursor-pointer ${active == 2 ? `border-b-4 border-[#2F80ED]` : ''}`} onClick={() => setActive(2)}>Rooms</p>
+            <p className={`p-2 cursor-pointer ${active == 3 ? `border-b-4 border-[#2F80ED]` : ''}`} onClick={() => setActive(3)}>Guest Reviews</p>
             </div>
             {/* short nav end */}
             {/* Overview section start */}
             <div className="md:mx-24 md:p-8 md:flex ">
             <div className="md:w-2/3 max-sm:p-4">
                 <>
-                    <p className="text-3xl font-semibold" >Lakeside Motel Warefront</p>
+                    <p className="text-3xl font-semibold" >{detail?.response[0].name}</p>
                     <div className="flex items-center max-sm:justify-center max-sm:pt-3">
                     <span className="md:py-4 flex justify-center items-center">
                     {
@@ -67,19 +90,20 @@ const Hdetail = () => {
                         </defs>
                         </svg> 
                     </span>
-                    <p className="ml-4 text-[#4F4F4F]">4.5 (1200 Reviews)</p>
+                    
+                    <p className="ml-4 text-[#4F4F4F]">4.5 ({detail?.response[0]?.reviews?.length})</p>
                     </div>
                     <p className="flex md:items-center max-sm:justify-center text-[#4F4F4F] text-sm max-sm:mt-3">
                     <svg className="mr-4" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M9.9999 11.1917C10.3413 11.1917 10.6794 11.1244 10.9949 10.9938C11.3103 10.8631 11.5969 10.6716 11.8384 10.4302C12.0798 10.1887 12.2713 9.90212 12.402 9.58668C12.5327 9.27123 12.5999 8.93314 12.5999 8.5917C12.5999 8.25026 12.5327 7.91217 12.402 7.59672C12.2713 7.28128 12.0798 6.99465 11.8384 6.75322C11.5969 6.51179 11.3103 6.32027 10.9949 6.18961C10.6794 6.05895 10.3413 5.9917 9.9999 5.9917C9.31034 5.9917 8.64902 6.26563 8.16142 6.75322C7.67383 7.24082 7.3999 7.90214 7.3999 8.5917C7.3999 9.28126 7.67383 9.94258 8.16142 10.4302C8.64902 10.9178 9.31034 11.1917 9.9999 11.1917V11.1917Z" stroke="#2F80ED" stroke-width="1.5"/>
                     <path d="M3.01675 7.07484C4.65842 -0.141828 15.3501 -0.133494 16.9834 7.08317C17.9417 11.3165 15.3084 14.8998 13.0001 17.1165C12.1935 17.8945 11.1165 18.3292 9.99592 18.3292C8.87529 18.3292 7.79835 17.8945 6.99175 17.1165C4.69175 14.8998 2.05842 11.3082 3.01675 7.07484V7.07484Z" stroke="#2F80ED" stroke-width="1.5"/>
                     </svg>
-                    Lorem ipsum road, Tantruim-2322, Melbourne, Australia</p>
+                    {detail?.response[0]?.address?.street}</p>
                 </>
                 <div className="py-8 max-sm:px-8 bg-white max-sm:mt-3 md:mt-8 rounded-xl md:p-4 ">
                     <p className="font-semibold md:px-4 max-sm:text-center">Overview</p>
                     <p className="text-[#4F4F4F] md:p-4 leading-8 md:border-b-2 max-sm:text-center" >
-                    Featuring free WiFi throughout the property, Lakeside Motel Waterfront offers accommodations in Lakes Entrance, 19 mi from Bairnsdale. Free private parking is available on site. Each room at this motel is air conditioned and comes with a flat-screen TV. You will find a kettle, toaster and a microwave in the room. Each room is fitted with a private bathroom. Guests have access to barbecue facilities and a lovely large lawn area. Metung is 6.8 mi from Lakeside Motel Waterfront, while Paynesville is 14 mi from the property. Couples in particular like the location – they rated it 9.2 for a two-person trip.
+                    {detail?.response[0]?.description}
                     </p>
                     <p className="p-4 font-semibold max-sm:text-center">Top Facilities</p>
                     <div className="my-4 md:flex ">
@@ -167,7 +191,7 @@ const Hdetail = () => {
             </div>
             <div className="md:w-1/3 mx-4">
                 <div className="">
-                    <img src="../../public/images/map.png"/>
+                   {detail?.response[0]?.address?.location?.coordinates[0] && <Map lat={detail?.response[0]?.address?.location?.coordinates[0]} long={detail?.response[0]?.address?.location?.coordinates[1]}/>}
                 </div>
                 <div className="py-4 font-sans">
                     <p className="max-sm:font-sans max-sm:font-semibold max-sm:text-center">Explore the area</p>
@@ -264,7 +288,7 @@ const Hdetail = () => {
 
                                 </div>
 
-                                <a href="checkout"><div className="bg-[#2F80ED] p-2 m-4 text-center rounded-3xl font-semibold ">Reserve suite</div></a>
+                                <a href={`checkout${location.search}`}><div className="bg-[#2F80ED] p-2 m-4 text-center rounded-3xl font-semibold ">Reserve suite</div></a>
                                 
                             </div>
                         </div>
@@ -304,7 +328,7 @@ const Hdetail = () => {
 
                                 </div>
 
-                                <a href="checkout"><div className="bg-[#2F80ED] p-2 m-4 text-center rounded-3xl font-semibold">Reserve suite</div></a>
+                                <a href={`checkout${location.search}`}><div className="bg-[#2F80ED] p-2 m-4 text-center rounded-3xl font-semibold">Reserve suite</div></a>
                                 
                             </div>
                         </div>
