@@ -17,7 +17,7 @@ const Checkout = () =>{
     },[])
 
     const getPageData  = async ()  => {
-       let data = await axios.get(`http://localhost:3000/api/detail${location.search}`).then((res)=>{
+       let data = await axios.get(`http://localhost:3000/api/checkout${location.search}`).then((res)=>{
             if(res != 'undefined'){
                 
                 setDetail(res.data);
@@ -34,10 +34,6 @@ const Checkout = () =>{
     }else if (mobile === ""){
 
     }
-   }
-   const calReview = (elem) =>{
-       let sum = elem?.review_scores_accuracy + elem?.review_scores_cleanliness + elem?.review_scores_checkin + elem?.review_scores_communication + elem?.review_scores_location + elem?.review_scores_value;
-       return sum/6;
    }
 
    return (
@@ -59,7 +55,7 @@ const Checkout = () =>{
                     <path d="M21.5835 4.79496L15.7618 2.61329C14.7935 2.25162 13.2068 2.25162 12.2385 2.61329L6.41685 4.79496C5.07518 5.29662 3.97852 6.88329 3.97852 8.30662V16.975C3.97852 18.3516 4.88852 20.16 5.99685 20.9883L11.0135 24.7333C12.6585 25.97 15.3652 25.97 17.0102 24.7333L22.0268 20.9883C23.1352 20.16 24.0452 18.3516 24.0452 16.975V8.30662C24.0218 6.88329 22.9252 5.29662 21.5835 4.79496ZM13.9185 8.20162C15.2952 8.20162 16.4152 9.32162 16.4152 10.6983C16.4152 12.0516 15.3535 13.1366 14.0118 13.1833H13.8952C12.4952 13.1366 11.4452 12.0516 11.4452 10.6983C11.4335 9.32162 12.5535 8.20162 13.9185 8.20162ZM16.5552 19.0866C15.8435 19.5533 14.9218 19.7983 14.0002 19.7983C13.0785 19.7983 12.1452 19.565 11.4452 19.0866C10.7802 18.6433 10.4185 18.0366 10.4068 17.3716C10.4068 16.7183 10.7802 16.0883 11.4452 15.645C12.8568 14.7116 15.1552 14.7116 16.5668 15.645C17.2318 16.0883 17.6052 16.695 17.6052 17.36C17.5935 18.0133 17.2202 18.6433 16.5552 19.0866Z" fill="white"/>
                     </svg>
                     <p className="mx-2 ">Room 1</p>
-                    <p className="md:ml-8 max-sm:w-1/2 max-sm:text-center max-sm:mx-auto">2 adults, 1 double bed and 1 twin bed, Non-smoking</p>
+                    <p className="md:ml-8 max-sm:w-1/2 max-sm:text-center max-sm:mx-auto">2 adults, 1 {detail?.response?.bed_type} ({detail?.response?.property_type})</p>
                 </div>
                 <div className="bg-white rounded-b-xl md:p-8">
                 <div className="md:flex md:items-center font-sans max-sm:pt-8">
@@ -149,9 +145,6 @@ const Checkout = () =>{
                     </div>
                     
                 </div>
-                
-                
-                
 
                 </div>
                 </div>
@@ -162,8 +155,8 @@ const Checkout = () =>{
 
 
                <div className="bg-white pb-2 rounded-md md:mb-12 max-sm:mb-8">
-                <img className="rounded-t-xl max-sm:w-full" src={detail?.response[0]?.images?.picture_url}/>
-                <p className="text-[#181818] ml-4 pt-2 font-medium">{detail?.response[0]?.name}</p>
+                <img className="rounded-t-xl max-sm:w-full" src={detail?.response?.photo}/>
+                <p className="text-[#181818] ml-4 pt-2 font-medium">{detail?.response?.name}</p>
                 <div className="ml-4">
                     <span className="mt-1 flex items-center font-serif ">
                         {
@@ -197,7 +190,7 @@ const Checkout = () =>{
                         </svg>  
                     </span>
                     <p className="text-sm text-[#4F4F4F] mt-1">
-                        {calReview(detail?.response[0]?.review_scores)} ({detail?.response[0]?.number_of_reviews} Reviews)
+                        {detail?.response?.overall_rating} ({detail?.response?.review_count} Reviews)
                     </p>
                     <div className="my-2 text-sm space-y-2">
                         <p className=" text-[#EB5757] font-semibold">Non refundable</p>
@@ -215,18 +208,18 @@ const Checkout = () =>{
                 <div className="bg-white rounded-b-md p-4 text-[#4F4F4F] ">
                     <div className="flex items-center justify-center space-x-20 md:my-2">
                         <p className="">1 room X 2 nights</p>
-                        <span className="flex justify-end">$ {detail?.response[0]?.price?.$numberDecimal}</span>
+                        <span className="flex justify-end">$ {detail?.response?.price}</span>
                     </div>
                     <div className="flex items-center justify-center space-x-20 my-2">
                         <p className="">Tax and service fees</p>
-                        <span className="flex justify-end">$ {detail?.response[0]?.cleaning_fee?.$numberDecimal}</span>
+                        <span className="flex justify-end">$ {detail?.response?.tax}</span>
                     </div>
                     <svg className="my-4" xmlns="http://www.w3.org/2000/svg" width="full" height="2" viewBox="0 0 400 2" fill="none">
                     <path d="M0 1H400" stroke="#E0E0E0"/>
                     </svg>
                     <div className="flex items-center justify-center space-x-20 my-2 text-lg text-black">
                         <p className="text-semibold ">Total</p>
-                        <span className="flex justify-end">$ {Number(detail?.response[0]?.price?.$numberDecimal) + Number(detail?.response[0]?.cleaning_fee?.$numberDecimal)}</span>
+                        <span className="flex justify-end">$ {Number(detail?.response?.price) + Number(detail?.response?.tax)}</span>
                     </div>
                     <p className="text-[12px] font-semibold text-[#2F80ED] text-center my-1" >Use a coupon, credit or promotional code</p>
                     <div className="md:m-4 ">
