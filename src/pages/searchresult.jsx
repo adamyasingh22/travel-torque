@@ -1,4 +1,5 @@
 import Budgetcomp from "../component/budgetcomp";
+import React, { useEffect, useState } from "react";
 import Header from "../component/header";
 import Budget from "../data/budget.json";
 import Popular from "../data/popular.json";
@@ -7,6 +8,10 @@ import Searchcomp from "../component/searchcomp";
 import Search from "../data/search.json";
 import Alert from "../component/alert";
 import Footer from "../component/footer";
+import axios from "axios";
+import Loader from "../component/loader";
+
+
 
 function budgetentry(item){
     return(
@@ -38,22 +43,32 @@ function activityentry(activity){
     )
 }
 
-function searchentry(search){
-    return (
-        <Searchcomp
-         id = {search.key}
-         link = {search.url}
-         name = {search.hotel}
-         reviews = {search.star}
-         visible = {search.show}
-         book = {search.now}
-         off = {search.dis}
-         />
-    )
-}
    
 
 const Searchresult = () => {
+
+    const [listing,setListing] = useState([]);
+
+        const getPageData  = async ()  => {
+       let data = await axios.get(`http://localhost:3000/api/listing${location.search}`).then((res)=>{
+        
+            if(res != "undefined"){
+                
+                setListing(res)
+                console.log(res.response)
+                
+            }
+            }
+        )
+   }
+
+    useEffect(()=>{
+        
+        getPageData()
+        
+    },[])
+
+
     return (
         <div>
             <div className="w-full">
@@ -99,7 +114,29 @@ const Searchresult = () => {
                         <button class= "border border-blue-500 bg-white py-2 px-4">Resort</button>
                         <button class = "border border-blue-500 bg-white py-2 px-4 rounded-r">Shared Space</button>
                     </div>
-                     {Search.map(searchentry)}
+
+                    
+                     { listing?.data?.response ?
+                        listing.data.response.map((item, index) =>{
+                            return(
+                                <Searchcomp
+                                id = {item.key}
+                                desc={item.summary}
+                                link = {`/detail?id=${item["_id"]}`}
+                                image={item.photo}
+                                name = {item.name}
+                                price = {item.price}
+                                tax={item.tax}
+                                reviews = {item.review_count}
+                                visible = {item.show}
+                                offer = {item["_id"] % 37 == 0 ? `Book now and recieve 15% off` : ``}
+                                off = {`-${item["_id"] % 37}%`}
+                                />
+                            )
+                        })
+                        :
+                        <Loader/>
+                     }
                 </div>
             </div>
             <div className="mt-8">
