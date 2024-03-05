@@ -13,6 +13,7 @@ import Welcome from "../component/welcome";
 import commonHelper from "../helper/commonHelper";
 import axios from "axios";
 import Loader from "../component/loader";
+import Searchbar from "../component/searchbar";
 
 const Home = () => {
     var a = 20
@@ -51,6 +52,7 @@ const Home = () => {
         {show && <Welcome show={setShow} time={10} showTime={true} title={`Welcome !! ${commonHelper.getEmail()}`} content="Hurry !! Special offer for your next trip will end in  "buttonText="Copy to Clipboard" buttonAction={copy}/>}
         <Swipers/>
         {/* <Search/> */}
+        <Searchbar/>
         
         <Alert/>
         { home?.data?.response?.hotels_by_places ? 
