@@ -1,11 +1,70 @@
+import { useState } from "react"
+import Datepicker from "tailwind-datepicker-react"
+
+const options = (placeholder) => {
+   return {
+      title: "Select Date",
+      autoHide: true,
+      todayBtn: false,
+      clearBtn: true,
+      clearBtnText: "Clear",
+      maxDate: new Date("2030-01-01"),
+      minDate: new Date("1950-01-01"),
+      theme: {
+         background: "bg-gray-700 dark:bg-gray-800",
+         todayBtn: "",
+         clearBtn: "",
+         icons: "",
+         text: "",
+         disabledText: "bg-red-500",
+         input: "",
+         inputIcon: "",
+         selected: "",
+      },
+      icons: {
+         // () => ReactElement | JSX.Element
+         prev: () => <span>Previous</span>,
+         next: () => <span>Next</span>,
+      },
+      datepickerClassNames: "top-2",
+      defaultDate: new Date("2022-01-01"),
+      language: "en",
+      disabledDates: [],
+      weekDays: ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
+      inputNameProp: "date",
+      inputIdProp: "date",
+      inputPlaceholderProp: placeholder,
+      inputDateFormatProp: {
+         day: "numeric",
+         month: "long",
+         year: "numeric"
+      }
+   }
+}
+
+const DemoComponent = ({placeholder}) => {
+	const [show, setShow] = useState(false)
+	const handleChange = (selectedDate) => {
+		console.log(selectedDate)
+	}
+	const handleClose = (state) => {
+		setShow(state)
+	}
+
+	return (
+		<div>
+			<Datepicker options={options(placeholder)} onChange={handleChange} show={show} setShow={handleClose} />
+		</div>
+	)
+}
 const Searchbar = () => {
     return (
-        <div className="flex items-center justify-center">
+        <div className="max-sm:hidden text-[#726c6c] flex flex-grow items-center justify-center space-x-2.5 bg-gradient-to-r from-teal-200 to-lime-200 mx-48 p-2">
             <div class="relative max-w-sm ">
               <div className="">
                <form class="max-w-sm ">
                <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                 <option selected>Choose a country</option>
+                 <option selected>Place</option>
                  <option value="US">United States</option>
                  <option value="CA">Canada</option>
                  <option value="FR">France</option>
@@ -14,22 +73,12 @@ const Searchbar = () => {
                </form>
               </div>
             </div>
-            <div class="relative max-w-sm w-48">
-                 <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                   <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                   <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-                   </svg>
-                 </div>
-                 <input type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Check-In"/>
-            </div>
-            <div class="relative w-48">
-              <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-                </svg>
-              </div>
-              <input name="end" type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Check-out"/>
-            </div>
+            <div>
+			        <DemoComponent placeholder={"Check in"}  />
+		      </div> 
+            <div>
+                 <DemoComponent placeholder={"Check out"}  />
+            </div>          
             <div class="relative w-48">
               <div class="absolute  inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
               <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
@@ -57,6 +106,10 @@ const Searchbar = () => {
               </div>
               <input name="Guests" type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Guests"/>
             </div>
+            <div>
+            <button type="button" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Search</button>
+            </div>
+
                          
 
         </div>
