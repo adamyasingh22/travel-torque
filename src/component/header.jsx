@@ -85,7 +85,7 @@ const Header  = (props) =>{
                     Activites
                 </li>
                 <li className='px-4'>
-                    About
+                    <a href="/aboutus">About</a>
                 </li>
                 <li className='pl-4'>
                     <a href="/contactus">Contact</a>
