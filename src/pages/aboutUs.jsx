@@ -10,6 +10,11 @@ const AboutUs = ()=>{
             <div className="mt-12 md:mx-32 font-serif max-sm:text-center">
                 <p className="font-semibold italic tracking-wide text-3xl text-center">About Us</p>
             </div>
+            <div>
+                <div>
+                    
+                </div>
+            </div>
             <Footer/>
 
 

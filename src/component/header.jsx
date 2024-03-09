@@ -79,7 +79,7 @@ const Header  = (props) =>{
                     <a href="/">Home</a>
                 </li>
                 <li className='px-4'>
-                    Discover
+                    <a href="/searchresults">Discover</a>
                 </li>
                 <li className='px-4'>
                     Activites
@@ -88,7 +88,7 @@ const Header  = (props) =>{
                     About
                 </li>
                 <li className='pl-4'>
-                    Contact
+                    <a href="/contactus">Contact</a>
                 </li>
                 <li className='rounded-md  font-semibold ml-40'>
                     <div className='md:flex md:justify-center md:items-center cursor-pointer' onClick={getLocation}>
