@@ -106,7 +106,7 @@ const Searchresult = () => {
                    </div>
                 </div>
                 <div className="w-2/3">
-                    <p className="text-xl font-bold">Melbourne : 2,582 search results found</p>
+                    <p className="text-xl font-bold">Melbourne : {listing?.data?.response &&  listing.data.response.length} search results found</p>
                     <div className="flex mt-2">
                         <button class= "border border-blue-500 bg-white py-2 px-4 rounded-l">Our top picks</button>
                         <button class= "border border-blue-500 bg-white py-2 px-4">Hotel & residents</button>

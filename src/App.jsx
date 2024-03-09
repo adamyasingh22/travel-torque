@@ -9,6 +9,7 @@ import Register from "./pages/register";
 import Createpass from "./pages/createpass";
 import Forgetpass from "./pages/forgetpass";
 import Searchresult from "./pages/searchresult";
+import ContactUs from "./pages/contact";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
   {
     path: "/detail",
     element: <Hdetail/>
+  },
+  {
+    path: "/contactus",
+    element: <ContactUs/>
   }
 ])
 function App() {
