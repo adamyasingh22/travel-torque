@@ -11,13 +11,13 @@ const options = (placeholder) => {
       maxDate: new Date("2030-01-01"),
       minDate: new Date("1950-01-01"),
       theme: {
-         background: "bg-gray-700 dark:bg-gray-800",
+         background: "bg-gray-500 dark:bg-white",
          todayBtn: "",
          clearBtn: "",
-         icons: "",
-         text: "",
+         icons: "text-black",
+         text: "text-black",
          disabledText: "bg-red-500",
-         input: "",
+         input: "bg-white",
          inputIcon: "",
          selected: "",
       },
@@ -42,7 +42,7 @@ const options = (placeholder) => {
    }
 }
 
-const DemoComponent = ({placeholder}) => {
+const DemoComponent = ({placeholder="`"}) => {
 	const [show, setShow] = useState(false)
 	const handleChange = (selectedDate) => {
 		console.log(selectedDate)
@@ -60,10 +60,10 @@ const DemoComponent = ({placeholder}) => {
 const Searchbar = () => {
     return (
         <div className="max-sm:hidden text-[#726c6c] flex flex-grow items-center justify-center space-x-2.5 bg-gradient-to-r from-teal-200 to-lime-200 mx-48 p-2">
-            <div class="relative max-w-sm ">
+            <div class="relative max-w-sm  ">
               <div className="">
                <form class="max-w-sm ">
-               <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+               <select id="countries" class="bg-gray-200 border border-gray-300 text-gray-100 text-sm rounded-lg focus:ring-gray-100 focus:border-gray-100 block w-full p-2.5 dark:bg-gray-400 dark:border-gray-600 dark:placeholder-gray-100 dark:text-white dark:focus:ring-gray-100 dark:focus:border-gray-500">
                  <option selected>Place</option>
                  <option value="US">United States</option>
                  <option value="CA">Canada</option>
