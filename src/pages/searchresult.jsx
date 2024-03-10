@@ -77,17 +77,17 @@ const Searchresult = () => {
             <div className="flex p-8 space-x-6">
                 <div className="w-1/6 ">
                    <div className="bg-gray-100 text-center pb-3 pt-2 space-y-3 rounded-lg">
-                      <p>Search by property name</p>
-                      <input placeholder="eg. beach" className=""></input>
+                      <p className="font-semibold">Search by Property Name</p>
+                      <input placeholder="Search" className="rounded-2xl p-2 text-center"></input>
                    </div>
                    <p className="mt-2">Filter by</p>
                    <div className=" bg-white rounded-lg text-center pb-3 pt-2 space-y-3 shadow-md mt-4">
-                      <p className="bg-gray-100 p-2 ">Budget per day</p>
+                      <p className="text-xl bg-gray-100 p-2 rounded-md font-semibold">Budget per day</p>
                       {Budget.map(budgetentry)}
                    </div>
                    <div className="mt-4 bg-white rounded-lg shadow-md">
-                      <p className="text-xl p-2 bg-gray-100 rounded-md">Rating</p>
-                      <p className="text-xs p-2">Show only rating more then</p>
+                      <p className="text-xl p-2 bg-gray-100 rounded-md text-center font-semibold">Rating</p>
+                      <p className="text-xs p-2 text-center">Show only rating more then</p>
                       <div className="flex rounded-md justify-between p-2">
                         <button class="">1⭐</button>
                         <button>2⭐</button>
@@ -106,13 +106,13 @@ const Searchresult = () => {
                    </div>
                 </div>
                 <div className="w-2/3">
-                    <p className="text-xl font-bold">Melbourne : {listing?.data?.response &&  listing.data.response.length} search results found</p>
-                    <div className="flex mt-2">
-                        <button class= "border border-blue-500 bg-white py-2 px-4 rounded-l">Our top picks</button>
-                        <button class= "border border-blue-500 bg-white py-2 px-4">Hotel & residents</button>
-                        <button class= "border border-blue-500 bg-white py-2 px-4">Residence</button>
-                        <button class= "border border-blue-500 bg-white py-2 px-4">Resort</button>
-                        <button class = "border border-blue-500 bg-white py-2 px-4 rounded-r">Shared Space</button>
+                    <p className="text-xl font-bold text-center">Melbourne : {listing?.data?.response &&  listing.data.response.length} search results found</p>
+                    <div className="flex mt-2 justify-center  border-blue-500">
+                        <button class= "border bg-white py-2 px-4 rounded-l">Our top picks</button>
+                        <button class= "border  bg-white py-2 px-4">Hotel & residents</button>
+                        <button class= "border bg-white py-2 px-4">Residence</button>
+                        <button class= "border  bg-white py-2 px-4">Resort</button>
+                        <button class = "border bg-white py-2 px-4 rounded-r">Shared Space</button>
                     </div>
 
                     

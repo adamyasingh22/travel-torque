@@ -6,7 +6,7 @@ const ContactUs = () => {
         <div>
             <Headers/>
             <div className="border-2 border-[#9bd1d1] rounded-3xl md:my-16 md:mx-32 md:flex md:justify-center md:items-center">
-                <img className="md:w-[50%] md:h-[50%] p-8 rounded-xl" alt="contact" 
+                <img className="md:w-[50%] md:h-[50%] m-8 rounded-xl" alt="contact" 
                 src="/images/contactus.jpg"/>
 
             <div className="text-center md:pl-12">

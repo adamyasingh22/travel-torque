@@ -10,7 +10,7 @@ const Vacation = (props) =>{
             
             
             {
-                props.info?.map((item , index)=>{
+                props.info.map((item , index)=>{
                     return(
                         <a href={`/searchresults?country=${item.name}`}>
                         <div className="max-sm:m-4 max-sm:text-center" key={index}>

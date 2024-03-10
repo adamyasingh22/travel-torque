@@ -57,7 +57,7 @@ const Home = () => {
         <Alert/>
         { home?.data?.response?.hotels_by_places ? 
         <>
-         <Vacation info={home.data.response.hotels_by_places} heading={{"title": "Enjoy your dream vacation","subTitle": "Plan and book our perfect trip with expert advice, travel tips, destination information and inspiration from us."}} image={["/images/australia.jpg","/images/portugal.jpg","/images/usa.jpg","/images/turkey.jpg"]}/>
+         <Vacation info={home.data?.response?.hotels_by_places} heading={{"title": "Enjoy your dream vacation","subTitle": "Plan and book our perfect trip with expert advice, travel tips, destination information and inspiration from us."}} image={["/images/australia.jpg","/images/portugal.jpg","/images/usa.jpg","/images/turkey.jpg"]}/>
          <Nexttrip/>
          <Vacation info={home.data.response.hotels_by_type} heading={{"title": "Popular Hotels","subTitle": ""}} image={["/images/house.jpg","/images/apartment.jpg","/images/hotel.jpg","/images/hostel.jpg"]}/>
         </>
