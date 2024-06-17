@@ -51,7 +51,7 @@ const Searchresult = () => {
 
         const getPageData  = async ()  => {
        let data = await axios
-           .get(`http://13.49.67.217/api/listing${location.search}`)
+           .get(`http://13.49.67.217/api/listing/${location.search}`)
            .then((res) => {
                if (res != "undefined") {
                    setListing(res);
