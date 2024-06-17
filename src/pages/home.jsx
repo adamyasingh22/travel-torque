@@ -29,12 +29,13 @@ const Home = () => {
     },[])
 
     const getPageData  = async ()  => {
-       let data = await axios.get(`http://localhost:3000/api/home`).then((res)=>{
-            if(res != "undefined"){
-                setHome(res)
-            }
-            }
-        )
+       let data = await axios
+           .get(`http://13.49.67.217/api/home`)
+           .then((res) => {
+               if (res != "undefined") {
+                   setHome(res);
+               }
+           });
    }
 
 
