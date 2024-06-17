@@ -15,14 +15,14 @@ const Hdetail = () => {
     },[location])
 
    const getPageData  = async ()  => {
-       let data = await axios.get(`http://localhost:3000/api/detail${location.search}`).then((res)=>{
-            if(res != 'undefined'){
-                
-                setDetail(res.data);
-                // console.log(">>>>>",detail)
-            }
-            }
-        )
+       let data = await axios
+           .get(`http://13.49.67.217/api/detail${location.search}`)
+           .then((res) => {
+               if (res != "undefined") {
+                   setDetail(res.data);
+                   // console.log(">>>>>",detail)
+               }
+           });
    }
 
     const count = [1,2,3,4]

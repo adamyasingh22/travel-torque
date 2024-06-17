@@ -17,14 +17,14 @@ const Checkout = () =>{
     },[])
 
     const getPageData  = async ()  => {
-       let data = await axios.get(`http://localhost:3000/api/checkout${location.search}`).then((res)=>{
-            if(res != 'undefined'){
-                
-                setDetail(res.data);
-                // console.log(">>>>>",detail)
-            }
-            }
-        )
+       let data = await axios
+           .get(`http://13.49.67.217/api/checkout${location.search}`)
+           .then((res) => {
+               if (res != "undefined") {
+                   setDetail(res.data);
+                   // console.log(">>>>>",detail)
+               }
+           });
    }
    const checkOut = () =>{
     if(name1 === ""){
