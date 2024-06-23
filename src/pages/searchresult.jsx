@@ -50,16 +50,14 @@ const Searchresult = () => {
     const [listing,setListing] = useState([]);
 
         const getPageData  = async ()  => {
-       let data = await axios.get(`http://13.49.67.217/api/listing${location.search}`).then((res)=>{
-        
-            if(res != "undefined"){
-                
-                setListing(res)
-                console.log(res.response)
-                
-            }
-            }
-        )
+       let data = await axios
+           .get(`https://expresstravel.onrender.com/listing${location.search}`)
+           .then((res) => {
+               if (res != "undefined") {
+                   setListing(res);
+                   console.log(res.response);
+               }
+           });
    }
 
     useEffect(()=>{

@@ -16,7 +16,7 @@ const Hdetail = () => {
 
    const getPageData  = async ()  => {
        let data = await axios
-           .get(`http://13.49.67.217/api/detail${location.search}`)
+           .get(`https://expresstravel.onrender.com/detail${location.search}`)
            .then((res) => {
                if (res != "undefined") {
                    setDetail(res.data);

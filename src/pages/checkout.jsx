@@ -18,7 +18,7 @@ const Checkout = () =>{
 
     const getPageData  = async ()  => {
        let data = await axios
-           .get(`http://13.49.67.217/api/checkout${location.search}`)
+           .get(`https://expresstravel.onrender.com/checkout${location.search}`)
            .then((res) => {
                if (res != "undefined") {
                    setDetail(res.data);
