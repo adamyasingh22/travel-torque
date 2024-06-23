@@ -41,6 +41,7 @@ const Home = () => {
 
     const copy = ()=>{
         navigator.clipboard.writeText("weekend45")
+        setShow(false);
     }
 
 
