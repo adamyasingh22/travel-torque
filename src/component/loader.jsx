@@ -1,4 +1,4 @@
-import Spinner from './../../public/spinner.gif'
+import Spinner from '/public/spinner.gif'
 
 
 const Loader = () =>{
