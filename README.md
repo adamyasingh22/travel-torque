@@ -67,10 +67,7 @@
 
 ---
 
-## 📸 Screenshots
 
-![Homepage](https://traveltorque.netlify.app/)
-![Booking Page](https://example.com/booking.png)
 
 ---
 
